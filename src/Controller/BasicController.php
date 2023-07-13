@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\Type\EmailsType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -24,7 +25,7 @@ class BasicController extends AbstractController
         $form = $this->createFormBuilder($user)
             ->add('name', TextType::class)
             ->add('emails', CollectionType::class, [
-                'entry_type' => TextType::class,
+                'entry_type' => EmailsType::class,
                 'allow_add' => true,
                 'allow_delete' => true,
                 'prototype' => true
