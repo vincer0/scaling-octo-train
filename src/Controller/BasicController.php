@@ -19,12 +19,19 @@ class BasicController extends AbstractController
     {
         $user = new User();
         $email = new Email();
+        $email2 = new Email();
         $email->setAddress('test@test.com');
-        $email->setPurpose('');
-        $email->setPurpose('');
-        $email->setPurpose('');
+        $email->addPurpose('');
+        $email->addPurpose('');
+        $email->addPurpose('');
+        $email2->setAddress('test2@test.com');
+        $email2->addPurpose('');
+        $email2->addPurpose('');
+        $email2->addPurpose('');
         $user->setName('user1');
-        $user->addEmail($email);
+        $user->addEmails($email);
+        $user->addEmails($email2);
+
 
         $form = $this->createFormBuilder($user)
             ->add('name', TextType::class)
@@ -35,7 +42,8 @@ class BasicController extends AbstractController
                 'prototype' => true,
                 'attr' => [
                     'class' => 'emails'
-                ]
+                ],
+                'by_reference' => false
             ])
             ->add('save', SubmitType::class, ['label' => 'Create User'])
             ->getForm();

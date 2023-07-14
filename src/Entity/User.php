@@ -29,7 +29,7 @@ class User
         return $this->emails;
     }
 
-    public function addEmail(Email $email): void
+    public function addEmails(Email $email): void
     {
         array_push($this->emails, $email);
     }

@@ -27,8 +27,13 @@ class Email
         return $this->purposes;
     }
 
-    public function setPurpose(string $purposes): void
+    public function addPurpose(string $purpose): void
     {
-        array_push($this->purposes, $purposes);
+        array_push($this->purposes, $purpose);
+    }
+
+    public function removePurpose(int $index): void
+    {
+        unset($this->purposes[$index]);
     }
 }
