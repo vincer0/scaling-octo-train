@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\Entity\Email;
+
 class User
 {
     private string $name;
@@ -27,7 +29,7 @@ class User
         return $this->emails;
     }
 
-    public function addEmail(string $email): void
+    public function addEmail(Email $email): void
     {
         array_push($this->emails, $email);
     }

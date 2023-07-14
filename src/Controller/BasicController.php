@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Entity\Email;
 use App\Form\Type\EmailsType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -17,10 +18,13 @@ class BasicController extends AbstractController
     public function form(): Response
     {
         $user = new User();
+        $email = new Email();
+        $email->setAddress('test@test.com');
+        $email->setPurpose('');
+        $email->setPurpose('');
+        $email->setPurpose('');
         $user->setName('user1');
-        $user->addEmail('test@test.com');
-        $user->addEmail('test2@test.com');
-        $user->addEmail('test3@test.com');
+        $user->addEmail($email);
 
         $form = $this->createFormBuilder($user)
             ->add('name', TextType::class)

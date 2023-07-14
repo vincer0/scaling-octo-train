@@ -2,10 +2,15 @@
 
 namespace App\Entity;
 
-class User
+class Email
 {
     private string $address;
-    private string $purpose;
+    private array $purposes;
+
+    public function __construct()
+    {
+        $this->purposes = [];
+    }
 
     public function getAddress(): string
     {
@@ -17,13 +22,13 @@ class User
         $this->address = $address;
     }
 
-    public function getPurpose(): string
+    public function getPurpose(): array
     {
-        return $this->purpose;
+        return $this->purposes;
     }
 
-    public function setPurpose(string $purpose): void
+    public function setPurpose(string $purposes): void
     {
-        $this->purpose = $purpose;
+        array_push($this->purposes, $purposes);
     }
 }
