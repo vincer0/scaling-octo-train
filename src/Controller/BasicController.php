@@ -32,7 +32,10 @@ class BasicController extends AbstractController
                 'entry_type' => EmailsType::class,
                 'allow_add' => true,
                 'allow_delete' => true,
-                'prototype' => true
+                'prototype' => true,
+                'attr' => [
+                    'class' => 'emails'
+                ]
             ])
             ->add('save', SubmitType::class, ['label' => 'Create User'])
             ->getForm();
